@@ -1,0 +1,58 @@
+﻿@model IEnumerable<UniversityWebDBMS.Models.Student>
+
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+<h2>List</h2>
+
+<p>
+    <a href="?mod=student_add">Create</a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            id
+        </th>
+        <th>
+            Program
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.surname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.patronymic)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Program1.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.surname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.patronymic)
+        </td>
+        <td>
+            <a href="?mod=student_edit&id=@item.id">Edit</a> |
+            <a href="?mod=student_details&id=@item.id">Details</a> |
+            <a href="?mod=student_delete&id=@item.id">Delete</a>
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,38 @@
+﻿@model UniversityWebDBMS.Models.Program
+
+@{
+    ViewBag.Title = "CourseStruct";
+    Layout = "~/Views/Shared/Index.cshtml";
+}
+
+<h2>Course Structure</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Course Name</th>
+            <th>ECTS</th>
+            <th>Lab</th>
+            <th>Exe</th>
+            <th>Lec</th>
+            <th>Sem</th>
+        </tr>
+    </thead>
+    <tbody> 
+        @foreach(UniversityWebDBMS.Models.Course course in Model.Courses)
+        {
+        <tr>
+            <td>@course.id</td>
+            <td>@course.name</td>
+            <td>@course.credit</td>
+            <td>@course.lab</td>
+            <td>@course.exe</td>
+            <td>@course.lec</td>
+            <td>@course.semester</td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+
+

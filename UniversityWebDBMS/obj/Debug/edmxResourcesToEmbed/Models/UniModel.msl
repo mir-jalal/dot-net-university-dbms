@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="universityModelStoreContainer" CdmEntityContainer="universityEntities1">
+    <EntitySetMapping Name="AcademicInfos">
+      <EntityTypeMapping TypeName="universityModel.AcademicInfo">
+        <MappingFragment StoreEntitySet="AcademicInfos">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="entrance" ColumnName="entrance" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="advisor" ColumnName="advisor" />
+          <ScalarProperty Name="dis_topic" ColumnName="dis_topic" />
+          <ScalarProperty Name="exam_score" ColumnName="exam_score" />
+          <ScalarProperty Name="state_funded" ColumnName="state_funded" />
+          <ScalarProperty Name="presidential_scholarship" ColumnName="presidential_scholarship" />
+          <ScalarProperty Name="registration_date" ColumnName="registration_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LoginCredentials">
+      <EntityTypeMapping TypeName="universityModel.LoginCredential">
+        <MappingFragment StoreEntitySet="LoginCredentials">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="role" ColumnName="role" />
+          <ScalarProperty Name="password" ColumnName="password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Students">
+      <EntityTypeMapping TypeName="universityModel.Student">
+        <MappingFragment StoreEntitySet="Students">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="surname" ColumnName="surname" />
+          <ScalarProperty Name="patronymic" ColumnName="patronymic" />
+          <ScalarProperty Name="program" ColumnName="program" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="universityModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="mobile" ColumnName="mobile" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="address" ColumnName="address" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

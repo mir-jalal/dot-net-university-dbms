@@ -1,0 +1,70 @@
+﻿@model UniversityWebDBMS.Models.CreateCourseViewData
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+<h2>Create Course</h2>
+<form method="post" action="?mod=create_course_form">
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text create-course-input" id="">Course Code:</span>
+        </div>
+        <input class="disabled form-control" name="id" type="text" value="@Model.course.id" readonly>
+    </div>
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text create-course-input" id="">Name:</span>
+        </div>
+        <input name="name" type="text" class="form-control" value="@Model.course.name">
+    </div>
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text create-course-input" id="">Credit:</span>
+        </div>
+        <input name="credit" type="text" class="form-control" value="@Model.course.credit">
+    </div>
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text create-course-input" id="" >Hours:</span>
+        </div>
+        <input name="hours" type="text" class="form-control" value="@Model.course.hours">
+    </div>
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text create-course-input" id="">Laboratory:</span>
+        </div>
+        <input name="lab" type="text" class="form-control" value="@Model.course.lab">
+    </div>
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text create-course-input" id="">Lecture:</span>
+        </div>
+        <input name="lec" type="text" class="form-control" value="@Model.course.lec">
+    </div>
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text create-course-input" id="">Exercise:</span>
+        </div>
+        <input name="exe" type="text" class="form-control" value="@Model.course.exe">
+    </div>
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text create-course-input" id="">Semester:</span>
+        </div>
+        <input name="semester" type="text" class="form-control" value="@Model.course.semester">
+    </div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <label class="input-group-text create-course-input" for="inputGroupSelect01">Program:</label>
+        </div>
+        <select class="custom-select" name="program">
+            @foreach (UniversityWebDBMS.Models.Program program in Model.Programs)
+            {
+                <option @if (Model.course.program.Equals(program.id)) { <text>selected</text> } value="@program.id">@program.name</option>
+            }
+        </select>
+    </div>
+    <button class="btn btn-primary" type="submit">Edit</button>
+</form>

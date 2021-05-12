@@ -1,0 +1,78 @@
+﻿@model IEnumerable<UniversityWebDBMS.Models.Course>
+
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+<h2>List</h2>
+
+<p>
+    <a href="?mod=course_create">Create New</a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.credit)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.hours)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lab)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lec)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.exe)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.semester)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.credit)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.hours)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lab)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lec)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.exe)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.semester)
+        </td>
+         
+        <td>
+            <a href="?mod=course_edit&id=@item.id">Edit</a>
+            <a href="?mod=course_details&id=@item.id">Details</a>
+            <a href="?mod=course_delete&id=@item.id">Delete</a>
+            
+        </td>
+    </tr>
+}
+
+</table>

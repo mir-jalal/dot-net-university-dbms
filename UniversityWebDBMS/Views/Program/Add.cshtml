@@ -1,0 +1,47 @@
+﻿@model UniversityWebDBMS.Models.Program
+
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+<h2>Add Program</h2>
+<form method="post" action="?mod=program_add_form">
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text create-course-input" id="">Program ID:</span>
+        </div>
+        <input name="id" type="text" class="form-control">
+    </div>
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text create-course-input" id="">Name:</span>
+        </div>
+        <input name="name" type="text" class="form-control">
+    </div>
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text create-course-input" id="">Year:</span>
+        </div>
+        <input name="year" type="text" class="form-control">
+    </div>
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text create-course-input" id="">Type:</span>
+        </div>
+        <select class="custom-select" name="type">
+            <option selected>Choose...</option>
+            <option value="Bachelor">Bachelor</option>
+            <option value="Master">Master</option>
+            <option value="MBA">MBA</option>
+            <option value="PhD">Ph.D</option>
+        </select>
+    </div>
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text create-course-input" id="">Department:</span>
+        </div>
+        <input name="department" type="text" class="form-control">
+    </div>
+    <button class="btn btn-primary" type="submit">Add</button>
+</form>

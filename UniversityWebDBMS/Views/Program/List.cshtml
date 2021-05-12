@@ -1,0 +1,52 @@
+﻿@model IEnumerable<UniversityWebDBMS.Models.Program>
+
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+<h2>List</h2>
+
+<p>
+    <a href="?mod=program_add">Create</a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.year)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.department)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.year)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.type)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.department)
+        </td>
+        <td>
+            <a href="?mod=program_edit&id=@item.id">Edit</a>|
+            <a href="?mod=program_details&id=@item.id">Details</a>|
+            <a href="?mod=program_delete&id=@item.id">Delete</a>
+        </td>
+    </tr>
+}
+
+</table>

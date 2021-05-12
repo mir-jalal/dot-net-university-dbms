@@ -1,0 +1,21 @@
+﻿#login-box-body {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.2);
+    margin-top: 100px;
+    background-color: white;
+    max-width: 540px !important;
+}
+
+body {
+    background-color: whitesmoke;
+}
+
+nav::after{
+    clear:!important both;
+}
+
+.create-course-input {
+    min-width: !important 125px;
+}

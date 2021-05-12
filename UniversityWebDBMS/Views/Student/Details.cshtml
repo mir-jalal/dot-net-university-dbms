@@ -1,0 +1,65 @@
+﻿@model UniversityWebDBMS.Models.Student
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Student</h4>
+    <hr />
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Student ID</th>
+                <td>@Model.id</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>@Model.name</td>
+            </tr>
+            <tr>
+                <th>Surname</th>
+                <td>@Model.surname</td>
+            </tr>
+            <tr>
+                <th>Patronymic</th>
+                <td>@Model.patronymic</td>
+            </tr>
+            <tr>
+                <th>Program
+                <td>@Model.Program1.name</td>
+            </tr>
+            <tr>
+                <th>Status</th>
+                <td>@Model.AcademicInfo.status</td>
+            </tr>
+            <tr>
+                <th>Dissertation topic</th>
+                <td>@Model.AcademicInfo.dis_topic</td>
+            </tr>
+            <tr>
+                <th>SEC exam score</th>
+                <td>@Model.AcademicInfo.exam_score</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>@Model.User.email</td>
+            </tr>
+            <tr>
+                <th>State Funded</th>
+                <td>@Model.AcademicInfo.state_funded</td>
+            </tr>
+            <tr>
+                <th>Presidential Scholarship</th>
+                <td>@Model.AcademicInfo.presidential_scholarship</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<p>
+    <a href="?mod=student_edit&id=@Model.id">Edit</a> |
+    <a href="?mod=student_list">Back to List</a>
+</p>

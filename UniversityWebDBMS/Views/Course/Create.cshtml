@@ -1,0 +1,83 @@
+﻿@model UniversityWebDBMS.Models.CreateCourseViewData
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+<h2>Create Course</h2>
+<form method="post" action="?mod=create_course_form">
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text create-course-input" id="">Course Code:</span>
+        </div>
+        <input name="id" type="text" class="form-control">
+    </div>
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text create-course-input" id="">Name:</span>
+        </div>
+        <input name="name" type="text" class="form-control">
+    </div>
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text create-course-input" id="">Credit:</span>
+        </div>
+        <input name="credit" type="text" class="form-control">
+    </div>
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text create-course-input" id="">Hours:</span>
+        </div>
+        <input name="hours" type="text" class="form-control">
+    </div>
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text create-course-input" id="">Laboratory:</span>
+        </div>
+        <input name="lab" type="text" class="form-control">
+    </div>
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text create-course-input" id="">Lecture:</span>
+        </div>
+        <input name="lec" type="text" class="form-control">
+    </div>
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text create-course-input" id="">Exercise:</span>
+        </div>
+        <input name="exe" type="text" class="form-control">
+    </div>
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text create-course-input" id="">Semester:</span>
+        </div>
+        <input name="semester" type="text" class="form-control">
+    </div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <label class="input-group-text create-course-input" for="inputGroupSelect01">Program:</label>
+        </div>
+        <select class="custom-select" name="program">
+            <option selected>Choose...</option>
+            @foreach (UniversityWebDBMS.Models.Program program in Model.Programs)
+            {
+                <option value="@program.id">@program.name</option>
+            }
+        </select>
+    </div>
+    <button class="btn btn-primary" type="submit">Create</button>
+</form>
+
+<!--
+    id
+    name
+    credit
+    hours
+    lab
+    lec
+    exe
+    semester
+    program
+-->

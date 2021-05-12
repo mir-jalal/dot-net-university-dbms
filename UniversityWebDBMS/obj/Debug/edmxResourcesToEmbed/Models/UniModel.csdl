@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="universityModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="AcademicInfo">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="entrance" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="advisor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="dis_topic" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="exam_score" Type="Int32" />
+    <Property Name="state_funded" Type="Boolean" />
+    <Property Name="presidential_scholarship" Type="Boolean" />
+    <Property Name="registration_date" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Student" Relationship="Self.FK_Table_To_id" FromRole="AcademicInfos" ToRole="Students" />
+  </EntityType>
+  <EntityType Name="LoginCredential">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="role" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="User" Relationship="Self.FK_Users_To_Login" FromRole="LoginCredentials" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="surname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="program" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="AcademicInfo" Relationship="Self.FK_Table_To_id" FromRole="Students" ToRole="AcademicInfos" />
+    <NavigationProperty Name="User" Relationship="Self.FK_Students_To_Id" FromRole="Students" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="LoginCredential" Relationship="Self.FK_Users_To_Login" FromRole="Users" ToRole="LoginCredentials" />
+    <NavigationProperty Name="Student" Relationship="Self.FK_Students_To_Id" FromRole="Users" ToRole="Students" />
+  </EntityType>
+  <Association Name="FK_Table_To_id">
+    <End Role="Students" Type="Self.Student" Multiplicity="1" />
+    <End Role="AcademicInfos" Type="Self.AcademicInfo" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="AcademicInfos">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Students">
+        <PropertyRef Name="id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_To_Login">
+    <End Role="LoginCredentials" Type="Self.LoginCredential" Multiplicity="1" />
+    <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="LoginCredentials">
+        <PropertyRef Name="id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Students_To_Id">
+    <End Role="Users" Type="Self.User" Multiplicity="1" />
+    <End Role="Students" Type="Self.Student" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Students">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="universityEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AcademicInfos" EntityType="Self.AcademicInfo" />
+    <EntitySet Name="LoginCredentials" EntityType="Self.LoginCredential" />
+    <EntitySet Name="Students" EntityType="Self.Student" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <AssociationSet Name="FK_Table_To_id" Association="Self.FK_Table_To_id">
+      <End Role="Students" EntitySet="Students" />
+      <End Role="AcademicInfos" EntitySet="AcademicInfos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_To_Login" Association="Self.FK_Users_To_Login">
+      <End Role="LoginCredentials" EntitySet="LoginCredentials" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Students_To_Id" Association="Self.FK_Students_To_Id">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Students" EntitySet="Students" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>@ViewBag.Title</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+    <link rel="stylesheet" href="~/Content/stylesheet.css" />
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
+            <a class="navbar-brand" href="#"><i class="fa fa-university" aria-hidden="true"></i></a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="?mod=default">Home Page</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="?mod=announces">Announces</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle"id="navbardrop" data-toggle="dropdown">
+                            Course
+                        </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="?mod=course_struct">Course Structure</a>
+                            <a class="dropdown-item" href="?mod=course_reg">Course Registration</a>
+                            <a class="dropdown-item" href="?mod=course_sched">Course Schedule</a>
+                            <a class="dropdown-item" href="?mod=re_exam">Apply for re-examination</a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown">
+                            Classes
+                        </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="?mod=grades">Grades List</a>
+                            <a class="dropdown-item" href="?mod=ejurnal">Attendance</a>
+                            <a class="dropdown-item" href="?mod=transcript">Transcript</a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="?mod=library">Library</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="?mod=contact">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="?mod=settings">Settings</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown">
+                            Others
+                        </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="?mod=view_deps">Departments and Programs</a>
+                            <a class="dropdown-item" href="?mod=card">Gate Entry Records</a>
+                            <a class="dropdown-item" href="?mod=online">Online Services</a>
+                            <a class="dropdown-item" href="?mod=question">Questionnaire</a>
+                            <a class="dropdown-item" href="?mod=tuition">Tuition Review</a>
+                            <a class="dropdown-item" href="?mod=exit">Exit</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="container-fluid" style="margin-top:80px">
+            @RenderBody()
+        </div>
+
+    </div>
+</body>
+</html>

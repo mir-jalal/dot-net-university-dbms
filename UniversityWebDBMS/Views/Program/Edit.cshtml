@@ -1,0 +1,50 @@
+﻿@model UniversityWebDBMS.Models.Program
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+<h2>Edit</h2>
+<form method="post" action="?mod=program_add_form">
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text create-course-input" id="">Program ID:</span>
+        </div>
+        <input name="id" type="text" class="form-control" value="@Model.id">
+    </div>
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text create-course-input" id="">Name:</span>
+        </div>
+        <input name="name" type="text" class="form-control" value="@Model.name">
+    </div>
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text create-course-input" id="">Year:</span>
+        </div>
+        <input name="year" type="text" class="form-control" value="@Model.year">
+    </div>
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text create-course-input" id="">Type:</span>
+        </div>
+        <select class="custom-select" name="type">
+            <option value="@Model.type">@Model.type</option>
+            <option value="Bachelor">Bachelor</option>
+            <option value="Master">Master</option>
+            <option value="MBA">MBA</option>
+            <option value="PhD">Ph.D</option>
+        </select>
+    </div>
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text create-course-input" id="">Department:</span>
+        </div>
+        <input name="department" type="text" class="form-control" value="@Model.department">
+    </div>
+    <button class="btn btn-primary" type="submit">Edit</button>
+</form>
+<div>
+    <a href="?mod=program_list">Back to List</a>
+</div>

@@ -1,0 +1,47 @@
+﻿@model UniversityWebDBMS.Models.User
+
+@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+<h2>Home</h2>
+
+<div>
+    <h4>User</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.LoginCredential.username)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LoginCredential.username)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.mobile)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mobile)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.address)
+        </dd>
+
+    </dl>
+</div>

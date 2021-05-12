@@ -1,0 +1,91 @@
+﻿@model UniversityWebDBMS.Models.Course
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/Index.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Course</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.credit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.credit)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.hours)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hours)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lab)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.lab)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lec)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.lec)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.exe)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.exe)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.semester)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.semester)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Program1.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Program1.name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <a href="?mod=course_edit&id=@Model.id">Edit</a><br/>
+    <a href="?mod=course_list">Back to Course List</a>
+</p>

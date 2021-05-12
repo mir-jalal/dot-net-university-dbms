@@ -1,0 +1,120 @@
+﻿@model UniversityWebDBMS.Models.Student
+
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+<h2>Add Student</h2>
+
+<form action="?mod=student_add_form" method="post">
+    <p>Student Information</p>
+    <hr />
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text create-course-input" id="">Name:</span>
+        </div>
+        <input name="name" type="text" class="form-control">
+    </div>
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text create-course-input" id="">Surname:</span>
+        </div>
+        <input name="surname" type="text" class="form-control">
+    </div>
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text create-course-input" id="">Patronymic:</span>
+        </div>
+        <input name="patronymic" type="text" class="form-control">
+    </div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <label class="input-group-text create-course-input" for="inputGroupSelect01">Program:</label>
+        </div>
+        <select class="custom-select" name="program">
+            <option selected>Choose...</option>
+            @foreach (UniversityWebDBMS.Models.Program program in new UniversityWebDBMS.Models.UniModel().Programs.ToList())
+            {
+                <option value="@program.id">@program.name</option>
+            }
+        </select>
+    </div>
+    <p>Login Details</p>
+    <hr />
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text create-course-input" id="">Password:</span>
+        </div>
+        <input name="password" type="password" class="form-control">
+    </div>
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text create-course-input" id="">Mobile Phone:</span>
+        </div>
+        <input name="mobile" type="text" class="form-control" value="">
+    </div>
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text create-course-input" id="">E-mail:</span>
+        </div>
+        <input name="email" type="text" class="form-control">
+    </div>
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text create-course-input" id="">Address:</span>
+        </div>
+        <input name="address" type="text" class="form-control">
+    </div>
+    <p>Academic Information</p>
+    <hr />
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text create-course-input" id="">Entrance Year:</span>
+        </div>
+        <input name="entrance" type="text" class="form-control">
+    </div>
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text create-course-input" id="">Advisor:</span>
+        </div>
+        <input name="advisor" type="text" class="form-control">
+    </div>
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text create-course-input" id="">Dissertation Topic:</span>
+        </div>
+        <input name="dis_topic" type="text" class="form-control">
+    </div>
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text create-course-input" id="">SEC Exam Score:</span>
+        </div>
+        <input name="exam_score" type="text" class="form-control">
+    </div>
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <div class="input-group-text">
+                <input name="state_funded" type="checkbox">
+            </div>
+        </div>
+        <div class="input-group-prepend">
+            <span class="input-group-text create-course-input" id="">State Funded</span>
+        </div>
+    </div>
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <div class="input-group-text">
+                <input name="presidential_scholarship" type="checkbox">
+            </div>
+        </div>
+        <div class="input-group-prepend">
+            <span class="input-group-text create-course-input" id="">Presidential Scholarship</span>
+        </div>
+    </div>
+    <button class="btn btn-primary" type="submit">Add</button>
+</form>
+
+<div>
+    <a href="?mod=student_list">Back to List</a>
+</div>
